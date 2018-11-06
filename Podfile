@@ -7,5 +7,6 @@ target 'FirebaseAuth Example' do
 
   # Pods for FirebaseAuth Example
   pod 'Firebase/Auth'
+  pod 'FBSDKLoginKit'
 
 end

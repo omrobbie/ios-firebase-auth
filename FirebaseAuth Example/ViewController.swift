@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 class ViewController: UIViewController {
 
@@ -51,6 +52,33 @@ class ViewController: UIViewController {
             
             print("uid: \(uid)")
             self.txtSignIn.text = uid
+        }
+    }
+    
+    @IBAction func btnSignInWithFacebook(_ sender: Any) {
+        let loginManager = FBSDKLoginManager()
+        
+        loginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            if let error = error {
+                print("Error: Sign in with facebook failed! \(error.localizedDescription)")
+                return
+            }
+            
+            if result!.grantedPermissions != nil {
+                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                
+                Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
+                    if let error = error {
+                        print("Error: Sign in and retrieve data facebook failed! \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    guard let uid = result?.user.uid else {return}
+                    
+                    print("uid: \(uid)")
+                    self.txtSignIn.text = uid
+                }
+            }
         }
     }
     
