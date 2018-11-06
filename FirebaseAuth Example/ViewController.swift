@@ -55,12 +55,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnSignOut(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("Error: Sign out failed! \(error.localizedDescription)")
-            return
-        }
+        Auth.auth().currentUser?.delete(completion: { (error) in
+            if let error = error {
+                print("Error: Delete current user failed! \(error.localizedDescription)")
+                return
+            }
+            
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                print("Error: Sign out failed! \(error.localizedDescription)")
+                return
+            }
+        })
         
         print("Sign out success!")
         self.txtSignIn.text = "Sign out success!"
