@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser != nil {
+            self.txtSignIn.text = Auth.auth().currentUser?.uid
+        }
     }
     
     @IBAction func btnSignInAnonymously(_ sender: Any) {
