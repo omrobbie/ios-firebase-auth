@@ -11,6 +11,8 @@ import Firebase
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var txtSignIn: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,9 +24,10 @@ class ViewController: UIViewController {
                 return
             }
             
-            if let uid = result?.user.uid {
-                print("uid: \(uid)")
-            }
+            guard let uid = result?.user.uid else {return}
+            
+            print("uid: \(uid)")
+            self.txtSignIn.text = uid
         }
     }
 }
