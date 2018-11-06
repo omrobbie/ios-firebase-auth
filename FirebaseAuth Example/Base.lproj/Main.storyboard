@@ -40,15 +40,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3p-1v-aC9">
+                                <rect key="frame" x="16" y="692" width="343" height="57"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="hyh-Ig-2CA"/>
+                                </constraints>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXj-Zn-cW9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m3p-1v-aC9" secondAttribute="trailing" constant="16" id="Iec-Gn-qrN"/>
                             <constraint firstItem="zoC-cd-60u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PJb-di-rVa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zoC-cd-60u" secondAttribute="trailing" constant="16" id="UNh-Xa-MEK"/>
                             <constraint firstItem="zoC-cd-60u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z2U-YJ-d3F"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zdu-XS-PDt" secondAttribute="trailing" constant="16" id="a0X-b5-fMJ"/>
+                            <constraint firstItem="m3p-1v-aC9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="acO-Qg-5Jg"/>
                             <constraint firstItem="Zdu-XS-PDt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qYk-R8-lf0"/>
                             <constraint firstItem="Zdu-XS-PDt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="sPn-nh-SHY"/>
+                            <constraint firstItem="Zdu-XS-PDt" firstAttribute="top" secondItem="m3p-1v-aC9" secondAttribute="bottom" constant="8" id="tRk-n5-VbE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

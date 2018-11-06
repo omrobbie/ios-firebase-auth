@@ -34,4 +34,16 @@ class ViewController: UIViewController {
             self.txtSignIn.text = uid
         }
     }
+    
+    @IBAction func btnSignOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error: Sign out failed! \(error.localizedDescription)")
+            return
+        }
+        
+        print("Sign out success!")
+        self.txtSignIn.text = "Sign out success!"
+    }
 }
