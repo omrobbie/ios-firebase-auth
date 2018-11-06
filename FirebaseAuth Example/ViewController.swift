@@ -24,6 +24,15 @@ class ViewController: UIViewController {
         }
     }
     
+    private func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error: Sign out failed! \(error.localizedDescription)")
+            return
+        }
+    }
+    
     @IBAction func btnSignInAnonymously(_ sender: Any) {
         Auth.auth().signInAnonymously { (result, error) in
             if let error = error {
@@ -83,19 +92,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnSignOut(_ sender: Any) {
-        Auth.auth().currentUser?.delete(completion: { (error) in
-            if let error = error {
-                print("Error: Delete current user failed! \(error.localizedDescription)")
-                return
-            }
-            
-            do {
-                try Auth.auth().signOut()
-            } catch {
-                print("Error: Sign out failed! \(error.localizedDescription)")
-                return
-            }
-        })
+        if Auth.auth().currentUser?.isAnonymous ?? false {
+            Auth.auth().currentUser?.delete(completion: { (error) in
+                if let error = error {
+                    print("Error: Delete current user failed! \(error.localizedDescription)")
+                    return
+                }
+                
+                self.signOut()
+            })
+        } else {
+            self.signOut()
+        }
         
         print("Sign out success!")
         self.txtSignIn.text = "Sign out success!"
