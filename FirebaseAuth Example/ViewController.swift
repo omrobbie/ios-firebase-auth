@@ -12,6 +12,8 @@ import Firebase
 class ViewController: UIViewController {
 
     @IBOutlet weak var txtSignIn: UILabel!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,23 @@ class ViewController: UIViewController {
         Auth.auth().signInAnonymously { (result, error) in
             if let error = error {
                 print("Error: Sign in anonymously failed! \(error.localizedDescription)")
+                return
+            }
+            
+            guard let uid = result?.user.uid else {return}
+            
+            print("uid: \(uid)")
+            self.txtSignIn.text = uid
+        }
+    }
+    
+    @IBAction func btnSignInWithEmail(_ sender: Any) {
+        guard let email = txtEmail.text else {return}
+        guard let password = txtPassword.text else {return}
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Error: Sign in with email failed! \(error.localizedDescription)")
                 return
             }
             

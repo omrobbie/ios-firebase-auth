@@ -53,13 +53,59 @@
                                     <action selector="btnSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXj-Zn-cW9"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOk-fi-KtQ">
+                                <rect key="frame" x="16" y="109" width="340" height="159"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVA-ii-ssk">
+                                        <rect key="frame" x="8" y="8" width="324" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dct-xe-kyd">
+                                        <rect key="frame" x="8" y="46" width="324" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ph7-5T-IJu">
+                                        <rect key="frame" x="8" y="94" width="324" height="57"/>
+                                        <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="57" id="zVo-MM-O0T"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign In With Email">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnSignInWithEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TIp-H8-XXj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ph7-5T-IJu" firstAttribute="leading" secondItem="mOk-fi-KtQ" secondAttribute="leading" constant="8" id="C7N-lI-MMz"/>
+                                    <constraint firstItem="MVA-ii-ssk" firstAttribute="top" secondItem="mOk-fi-KtQ" secondAttribute="top" constant="8" id="I5l-qH-rr8"/>
+                                    <constraint firstItem="MVA-ii-ssk" firstAttribute="leading" secondItem="mOk-fi-KtQ" secondAttribute="leading" constant="8" id="KVI-fQ-Ee6"/>
+                                    <constraint firstAttribute="height" constant="159" id="Mf5-JO-6Ah"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ph7-5T-IJu" secondAttribute="trailing" constant="8" id="MzF-h1-oMS"/>
+                                    <constraint firstAttribute="trailing" secondItem="dct-xe-kyd" secondAttribute="trailing" constant="8" id="Xrd-00-gzz"/>
+                                    <constraint firstAttribute="trailing" secondItem="MVA-ii-ssk" secondAttribute="trailing" constant="8" id="eLP-KI-sp9"/>
+                                    <constraint firstItem="dct-xe-kyd" firstAttribute="leading" secondItem="mOk-fi-KtQ" secondAttribute="leading" constant="8" id="j6d-c9-K0v"/>
+                                    <constraint firstItem="dct-xe-kyd" firstAttribute="top" secondItem="MVA-ii-ssk" secondAttribute="bottom" constant="8" id="v3w-UG-RqF"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ph7-5T-IJu" secondAttribute="bottom" constant="8" id="zHy-UG-3LU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mOk-fi-KtQ" secondAttribute="trailing" constant="19" id="1gw-Bh-gt1"/>
+                            <constraint firstItem="mOk-fi-KtQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8MH-Pc-o2c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m3p-1v-aC9" secondAttribute="trailing" constant="16" id="Iec-Gn-qrN"/>
                             <constraint firstItem="zoC-cd-60u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PJb-di-rVa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zoC-cd-60u" secondAttribute="trailing" constant="16" id="UNh-Xa-MEK"/>
                             <constraint firstItem="zoC-cd-60u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z2U-YJ-d3F"/>
+                            <constraint firstItem="mOk-fi-KtQ" firstAttribute="top" secondItem="zoC-cd-60u" secondAttribute="bottom" constant="8" id="ZGN-an-Ro4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zdu-XS-PDt" secondAttribute="trailing" constant="16" id="a0X-b5-fMJ"/>
                             <constraint firstItem="m3p-1v-aC9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="acO-Qg-5Jg"/>
                             <constraint firstItem="Zdu-XS-PDt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qYk-R8-lf0"/>
@@ -69,6 +115,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="txtEmail" destination="MVA-ii-ssk" id="Dz7-9s-GuJ"/>
+                        <outlet property="txtPassword" destination="dct-xe-kyd" id="h7a-qz-UIw"/>
                         <outlet property="txtSignIn" destination="Zdu-XS-PDt" id="04C-TP-mgr"/>
                     </connections>
                 </viewController>
