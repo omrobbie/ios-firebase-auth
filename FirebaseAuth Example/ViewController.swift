@@ -24,15 +24,6 @@ class ViewController: UIViewController {
         }
     }
     
-    private func signOut() {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("Error: Sign out failed! \(error.localizedDescription)")
-            return
-        }
-    }
-    
     @IBAction func btnSignInAnonymously(_ sender: Any) {
         Auth.auth().signInAnonymously { (result, error) in
             if let error = error {
@@ -40,16 +31,16 @@ class ViewController: UIViewController {
                 return
             }
             
-            guard let uid = result?.user.uid else {return}
-            
-            print("uid: \(uid)")
-            self.txtSignIn.text = uid
+            if let uid = result?.user.uid {
+                print("uid: \(uid)")
+                self.txtSignIn.text = uid
+            }
         }
     }
     
     @IBAction func btnSignInWithEmail(_ sender: Any) {
-        guard let email = txtEmail.text else {return}
-        guard let password = txtPassword.text else {return}
+        let email = txtEmail.text!
+        let password = txtPassword.text!
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -57,10 +48,10 @@ class ViewController: UIViewController {
                 return
             }
             
-            guard let uid = result?.user.uid else {return}
-            
-            print("uid: \(uid)")
-            self.txtSignIn.text = uid
+            if let uid = result?.user.uid {
+                print("uid: \(uid)")
+                self.txtSignIn.text = uid
+            }
         }
     }
     
@@ -82,10 +73,10 @@ class ViewController: UIViewController {
                         return
                     }
                     
-                    guard let uid = result?.user.uid else {return}
-                    
-                    print("uid: \(uid)")
-                    self.txtSignIn.text = uid
+                    if let uid = result?.user.uid {
+                        print("uid: \(uid)")
+                        self.txtSignIn.text = uid
+                    }
                 }
             }
         }
@@ -98,11 +89,14 @@ class ViewController: UIViewController {
                     print("Error: Delete current user failed! \(error.localizedDescription)")
                     return
                 }
-                
-                self.signOut()
             })
-        } else {
-            self.signOut()
+        }
+        
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error: Sign out failed! \(error.localizedDescription)")
+            return
         }
         
         print("Sign out success!")
