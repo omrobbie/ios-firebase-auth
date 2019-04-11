@@ -6,6 +6,7 @@ target 'FirebaseAuth Example' do
   use_frameworks!
 
   # Pods for FirebaseAuth Example
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FBSDKLoginKit'
 
